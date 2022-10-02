@@ -122,4 +122,4 @@ app.post('/users' , async (req , res)=>{
 
 
 
-app.listen(3000 , ()=>console.log('Arkade backend servers up and running'))
+app.listen(process.env.port , ()=>console.log('Arkade backend servers up and running'))

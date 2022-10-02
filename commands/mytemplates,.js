@@ -9,6 +9,7 @@ export default {
 
         }
     })
+    if(user.ok){
         user=await user.json()
         let servers = user.servers
         let embed = new Discord.MessageEmbed()
@@ -28,6 +29,8 @@ export default {
             embed.addField(serv ,server)
         }
         message.channel.send(embed)
-    }
+    }else{
+message.channel.send('You dont have any templates')
+    }}
 
 }
