@@ -297,6 +297,6 @@ app.post('/users', function _callee3(req, res) {
     }
   });
 });
-app.listen(process.env.port, function () {
+app.listen(process.env.PORT, function () {
   return console.log('Arkade backend servers up and running');
 });
