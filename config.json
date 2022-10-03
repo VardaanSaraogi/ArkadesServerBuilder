@@ -1,3 +1,4 @@
 {
-    "prefix":"!"
+    "prefix":"!",
+    "server":"http://localhost:3000"
 }

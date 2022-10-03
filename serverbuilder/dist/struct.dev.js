@@ -146,16 +146,12 @@ function () {
         if (c.type == 'category') {
           var big = category(c.name);
 
-          _this.head.children.push(big); // console.log(c.children[0].name)
-
+          _this.head.children.push(big);
 
           c.children.forEach(function (smol) {
             console.log(smol.name);
             big.children.push(channel(smol.name, smol.type));
-          }); // for(let smol of c.children){
-          //     console.log(smol.name , smol.type)
-          //     big.children.push(channel(smol.name , smol.type))
-          // }
+          });
         } else if (!c.parent) {
           _this.head.children.push(channel(c.name, c.type));
         }

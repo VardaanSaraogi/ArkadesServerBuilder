@@ -2,10 +2,6 @@
 
 var _express = _interopRequireDefault(require("express"));
 
-var _test = _interopRequireDefault(require("./serverbuilder/templates/test1.js"));
-
-var _test2 = _interopRequireDefault(require("./serverbuilder/templates/test2.js"));
-
 var _fs = _interopRequireDefault(require("fs"));
 
 var _cors = _interopRequireDefault(require("cors"));
@@ -217,11 +213,14 @@ app.post('/templates', function _callee2(req, res) {
         case 0:
           bod = req.body;
           console.log(bod, 'ddd');
-          templates.push(bod);
-          _context6.next = 5;
+          _context6.next = 4;
+          return regeneratorRuntime.awrap(templates.push(bod));
+
+        case 4:
+          _context6.next = 6;
           return regeneratorRuntime.awrap(writeServer());
 
-        case 5:
+        case 6:
         case "end":
           return _context6.stop();
       }
@@ -297,6 +296,6 @@ app.post('/users', function _callee3(req, res) {
     }
   });
 });
-app.listen(process.env.PORT, function () {
+app.listen(3000, function () {
   return console.log('Arkade backend servers up and running');
 });

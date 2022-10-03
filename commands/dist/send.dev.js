@@ -7,6 +7,8 @@ exports["default"] = void 0;
 
 var _nodeFetch = _interopRequireDefault(require("node-fetch"));
 
+var _config = require("../config.json");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 var _default = {
@@ -21,7 +23,7 @@ var _default = {
             console.log(mention);
             stamp = args[0];
             _context.next = 5;
-            return regeneratorRuntime.awrap((0, _nodeFetch["default"])("http://localhost:3000/users?id=".concat(message.author.id), {
+            return regeneratorRuntime.awrap((0, _nodeFetch["default"])("".concat(_config.server, "/users?id=").concat(message.author.id), {
               headers: {
                 'X-API-KEY': '9jN#BcavMWY*kZk5D20!8SGnS$X'
               }
@@ -30,7 +32,7 @@ var _default = {
           case 5:
             SenderUser = _context.sent;
             _context.next = 8;
-            return regeneratorRuntime.awrap((0, _nodeFetch["default"])("http://localhost:3000/users?id=".concat(mention), {
+            return regeneratorRuntime.awrap((0, _nodeFetch["default"])("".concat(_config.server, "/users?id=").concat(mention), {
               headers: {
                 'X-API-KEY': '9jN#BcavMWY*kZk5D20!8SGnS$X'
               }
@@ -62,7 +64,7 @@ var _default = {
               console.log(arr);
               arr2 = recieverUser.servers;
               arr2.push(stamp);
-              (0, _nodeFetch["default"])('http://localhost:3000/users', {
+              (0, _nodeFetch["default"])('${server}/users', {
                 headers: {
                   'X-API-KEY': '9jN#BcavMWY*kZk5D20!8SGnS$X',
                   'Accept': 'application/json',
@@ -74,7 +76,7 @@ var _default = {
                   servers: arr
                 })
               });
-              (0, _nodeFetch["default"])('http://localhost:3000/users', {
+              (0, _nodeFetch["default"])('${server}/users', {
                 headers: {
                   'X-API-KEY': '9jN#BcavMWY*kZk5D20!8SGnS$X',
                   'Accept': 'application/json',
@@ -110,7 +112,7 @@ var _default = {
 
             if (SenderUser.servers.includes(stamp)) {
               arre = [stamp];
-              (0, _nodeFetch["default"])('http://localhost:3000/users', {
+              (0, _nodeFetch["default"])('${server}/users', {
                 headers: {
                   'X-API-KEY': '9jN#BcavMWY*kZk5D20!8SGnS$X',
                   'Accept': 'application/json',
@@ -122,7 +124,7 @@ var _default = {
                   servers: arre
                 })
               });
-              (0, _nodeFetch["default"])('http://localhost:3000/users', {
+              (0, _nodeFetch["default"])('${server}/users', {
                 headers: {
                   'X-API-KEY': '9jN#BcavMWY*kZk5D20!8SGnS$X',
                   'Accept': 'application/json',

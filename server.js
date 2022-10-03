@@ -1,7 +1,5 @@
 import Express from 'express'
 const app = new Express();
-import server1 from './serverbuilder/templates/test1.js'
-import server2 from './serverbuilder/templates/test2.js'
 import fs from 'fs'
 import cors from 'cors'
 // import { apiKeyAuth } from ''
@@ -75,12 +73,12 @@ app.get('/templates', async (req, res) => {
 
 })
 
-
+ 
 app.post('/templates', async (req, res) => {
 
     let bod = req.body
     console.log(bod , 'ddd')
-    templates.push(bod)
+    await templates.push(bod)
     await writeServer()
 
 })
@@ -122,4 +120,4 @@ app.post('/users' , async (req , res)=>{
 
 
 
-app.listen(process.env.PORT , ()=>console.log('Arkade backend servers up and running'))
+app.listen(3000 , ()=>console.log('Arkade backend servers up and running'))

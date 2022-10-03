@@ -1,4 +1,1 @@
-{
-    "users":[],
-    "servers":[]
-}
+{"users":[{"id":"906911432996708392","servers":["96ed322d689","ed322d6894e"]},{"id":"834401008020357181","servers":["6ed322d6894"]}],"servers":[{"head":{"isHead":true,"children":[{"isHead":false,"children":[],"name":"yooo","type":"text"}],"name":"yooo","type":"Header","stamp":"96ed322d689"}},{"head":{"isHead":true,"children":[{"isHead":false,"children":[],"name":"yooo","type":"text"}],"name":"ee","type":"Header","stamp":"6ed322d6894"}},{"head":{"isHead":true,"children":[{"isHead":false,"children":[],"name":"yooo","type":"text"}],"name":"eeeee","type":"Header","stamp":"ed322d6894e"}}]}

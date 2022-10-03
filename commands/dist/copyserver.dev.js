@@ -11,6 +11,8 @@ var _traverse = _interopRequireDefault(require("../serverbuilder/traverse.js"));
 
 var _uid = require("uid");
 
+var _config = require("../config.json");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 // import server = from '../serverbuilder/templates/test1')
@@ -30,7 +32,7 @@ var _default = {
           case 2:
             serv = _context.sent;
             _context.next = 5;
-            return regeneratorRuntime.awrap((0, _nodeFetch["default"])("http://localhost:3000/users?id=".concat(message.author.id), {
+            return regeneratorRuntime.awrap((0, _nodeFetch["default"])("".concat(_config.server, "/users?id=").concat(message.author.id), {
               headers: {
                 'X-API-KEY': '9jN#BcavMWY*kZk5D20!8SGnS$X'
               }
@@ -54,7 +56,7 @@ var _default = {
             arr = d.servers;
             arr.push(serv.head.stamp);
             console.log(arr);
-            (0, _nodeFetch["default"])('http://localhost:3000/users', {
+            (0, _nodeFetch["default"])('${server}/users', {
               headers: {
                 'X-API-KEY': '9jN#BcavMWY*kZk5D20!8SGnS$X',
                 'Accept': 'application/json',
@@ -71,7 +73,7 @@ var _default = {
 
           case 18:
             _arr = [serv.head.stamp];
-            (0, _nodeFetch["default"])('http://localhost:3000/users', {
+            (0, _nodeFetch["default"])('${server}/users', {
               headers: {
                 'X-API-KEY': '9jN#BcavMWY*kZk5D20!8SGnS$X',
                 'Accept': 'application/json',
@@ -85,7 +87,7 @@ var _default = {
             });
 
           case 20:
-            (0, _nodeFetch["default"])("http://localhost:3000/templates", {
+            (0, _nodeFetch["default"])("${server}/templates", {
               headers: {
                 'X-API-KEY': '9jN#BcavMWY*kZk5D20!8SGnS$X',
                 'Accept': 'application/json',

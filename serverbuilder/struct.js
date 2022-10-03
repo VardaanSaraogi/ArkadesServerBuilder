@@ -78,16 +78,10 @@ class ServerConstructor{
             if(c.type == 'category'){
                 let big =category(c.name)
                 this.head.children.push(big)
-                // console.log(c.children[0].name)
                 c.children.forEach(smol=>{
                     console.log(smol.name)
                     big.children.push(channel(smol.name , smol.type))
                 })
-                // for(let smol of c.children){
-
-                //     console.log(smol.name , smol.type)
-                //     big.children.push(channel(smol.name , smol.type))
-                // }
             }else if(!c.parent){
                 this.head.children.push(channel(c.name , c.type))
             }

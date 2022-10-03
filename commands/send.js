@@ -1,16 +1,21 @@
 import fetch from 'node-fetch'
+// import {server} from '../config.json'
+import { createRequire } from "module"; // Bring in the ability to create the 'require' method
+const require = createRequire(import.meta.url);
+// import {server} from '../config.json'
+const {server} = require('../config.json')
 export default {
     name:"send",
     async run(message , args){
         let mention = message.mentions.users.first().id;
         console.log(mention)
         let stamp = args[0]
-        let SenderUser = await fetch(`http://localhost:3000/users?id=${message.author.id}` , {
+        let SenderUser = await fetch(`${server}/users?id=${message.author.id}` , {
             headers:{
                 'X-API-KEY':'9jN#BcavMWY*kZk5D20!8SGnS$X',
             }
         })
-        let recieverUser = await fetch(`http://localhost:3000/users?id=${mention}` , {
+        let recieverUser = await fetch(`${server}/users?id=${mention}` , {
             headers:{
                 'X-API-KEY':'9jN#BcavMWY*kZk5D20!8SGnS$X',
             }
@@ -23,7 +28,7 @@ export default {
                 console.log(arr)
                 let arr2 = recieverUser.servers
                 arr2.push(stamp)
-                fetch('http://localhost:3000/users' , {
+                fetch(`${server}/users` , {
                     headers: {
                       'X-API-KEY':'9jN#BcavMWY*kZk5D20!8SGnS$X',
                       'Accept': 'application/json',
@@ -36,7 +41,7 @@ export default {
                       servers:arr
                     })
                   })
-                  fetch('http://localhost:3000/users' , {
+                  fetch(`${server}/users` , {
                     headers: {
                       'X-API-KEY':'9jN#BcavMWY*kZk5D20!8SGnS$X',
                       'Accept': 'application/json',
@@ -60,7 +65,7 @@ export default {
             if(SenderUser.servers.includes(stamp)){
 
             let  arre = [stamp]
-            fetch('http://localhost:3000/users' , {
+            fetch(`${server}/users` , {
               headers: {
                 'X-API-KEY':'9jN#BcavMWY*kZk5D20!8SGnS$X',
     
@@ -74,7 +79,7 @@ export default {
               })
             
             })
-            fetch('http://localhost:3000/users' , {
+            fetch(`${server}/users` , {
               headers: {
                 'X-API-KEY':'9jN#BcavMWY*kZk5D20!8SGnS$X',
     

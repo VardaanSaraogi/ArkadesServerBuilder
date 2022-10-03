@@ -9,19 +9,21 @@ var _discord = _interopRequireDefault(require("discord.js"));
 
 var _nodeFetch = _interopRequireDefault(require("node-fetch"));
 
+var _config = require("../config.json");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 var _default = {
   name: 'mytemplates',
   run: function run(message, args) {
-    var user, servers, embed, _iteratorNormalCompletion, _didIteratorError, _iteratorError, _iterator, _step, server, serv;
+    var user, servers, embed, _iteratorNormalCompletion, _didIteratorError, _iteratorError, _iterator, _step, _server, serv;
 
     return regeneratorRuntime.async(function run$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
             _context.next = 2;
-            return regeneratorRuntime.awrap((0, _nodeFetch["default"])("http://localhost:3000/users?id=".concat(message.author.id), {
+            return regeneratorRuntime.awrap((0, _nodeFetch["default"])("".concat(_config.server, "/users?id=").concat(message.author.id), {
               headers: {
                 'X-API-KEY': '9jN#BcavMWY*kZk5D20!8SGnS$X'
               }
@@ -55,9 +57,9 @@ var _default = {
               break;
             }
 
-            server = _step.value;
+            _server = _step.value;
             _context.next = 19;
-            return regeneratorRuntime.awrap((0, _nodeFetch["default"])("http://localhost:3000/templates?stamp=".concat(server), {
+            return regeneratorRuntime.awrap((0, _nodeFetch["default"])("".concat(_server, "/templates?stamp=").concat(_server), {
               headers: {
                 'X-API-KEY': '9jN#BcavMWY*kZk5D20!8SGnS$X'
               }
@@ -73,7 +75,7 @@ var _default = {
             // console.log(serv);
             serv = serv.head.name;
             if (!serv) serv = "Unnamed Template";
-            embed.addField(serv, server);
+            embed.addField(serv, _server);
 
           case 26:
             _iteratorNormalCompletion = true;

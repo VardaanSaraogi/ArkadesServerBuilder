@@ -9,6 +9,8 @@ var _traverse = _interopRequireDefault(require("../serverbuilder/traverse.js"));
 
 var _nodeFetch = _interopRequireDefault(require("node-fetch"));
 
+var _config = require("../config.json");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 var _default = {
@@ -21,7 +23,7 @@ var _default = {
           case 0:
             stamp = args[0];
             _context.next = 3;
-            return regeneratorRuntime.awrap((0, _nodeFetch["default"])("http://localhost:3000/users?id=".concat(message.author.id), {
+            return regeneratorRuntime.awrap((0, _nodeFetch["default"])("".concat(ServiceWorkerContainer, "/users?id=").concat(message.author.id), {
               headers: {
                 'X-API-KEY': '9jN#BcavMWY*kZk5D20!8SGnS$X'
               }
@@ -42,7 +44,7 @@ var _default = {
             }
 
             _context.next = 11;
-            return regeneratorRuntime.awrap((0, _nodeFetch["default"])("http://localhost:3000/templates?stamp=".concat(stamp), {
+            return regeneratorRuntime.awrap((0, _nodeFetch["default"])("".concat(_config.server, "/templates?stamp=").concat(stamp), {
               headers: {
                 'X-API-KEY': '9jN#BcavMWY*kZk5D20!8SGnS$X'
               }

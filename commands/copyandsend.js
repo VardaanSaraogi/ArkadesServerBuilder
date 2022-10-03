@@ -9,10 +9,12 @@ const require = createRequire(import.meta.url);
 // import {server} from '../config.json'
 const {server} = require('../config.json')
 export default {
-    name:"copyserver",
+    name:"copyandsend",
      async run(message , args){
+        let mention = message.mentions.users.first().id;
+
      let serv = await ServerMethods.copyServer(message , args[0]  , uid())
-      let user = await fetch(`${server}/users?id=${message.author.id}` , {
+      let user = await fetch(`${server}/users?id=${mention}` , {
         headers:{
           'X-API-KEY':'9jN#BcavMWY*kZk5D20!8SGnS$X',
         }
@@ -33,7 +35,7 @@ export default {
           method: "POST",
 
           body: JSON.stringify({
-            id:message.author.id,
+            id:mention,
             servers:arr
           })
         })
@@ -48,7 +50,7 @@ export default {
           },
           method: "POST",
           body: JSON.stringify({
-            id:message.author.id,
+            id:mention,
             servers:arr
           })
         
